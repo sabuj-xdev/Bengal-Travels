@@ -17,6 +17,7 @@ body{
 }
 .logo img {
     width:50px;
+    border-radius: 50%;
 }
 /* Navbar */
 nav{
