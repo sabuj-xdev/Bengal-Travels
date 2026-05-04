@@ -3,224 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="icon" type="image/x-icon" href="Assets/favicon.png">
-    <title>
-        Bengal Travels</title>
+    <title>Bengal Travels</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="main.js">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">
-            <img src="Assets/favicon.png" alt="">
-            <h1>Bengal Travels</h1></div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#destination">Destination</a></li>
-            <li><a href="#booking">Booking</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        <h2>Bengal Travels</h2>
+    </div>
 
-    <!-- Hero Section -->
-    <header id="home">
-        <video autoplay muted loop class="bg-video">
-        <source src=" Assets/beauty.mp4" type="video/mp4">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#destination">Destination</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<header id="home">
+    <video autoplay muted loop class="bg-video">
+        <source src="Assets/beauty.mp4" type="video/mp4">
     </video>
+
     <div class="overlay"></div>
-        <div class="hero-content">
-            <h1>Explore Beautiful <br> Bangladesh</h1>
-            <p>Your dream trip starts here</p>
-            <a href="#booking" class="btn">Book Now</a>
-        </div>
-    </header>
 
-    <!-- Destination Section -->
-    <section id="destination" class="destination">
-        <h2>Popular Destinations</h2>
+    <div class="hero-content">
+        <h1>Explore Beautiful Bangladesh</h1>
+        <p>Your dream trip starts here</p>
+        <a href="#booking" class="btn">Book Now</a>
+    </div>
+</header>
 
-        <div class="destination-container">
-            <div class="card">
-                
-                <img src="Assets/cox bazar.jpg" alt="">
-                <h3>Cox's Bazar</h3>
-                
-                   
-                <p>World's longest sea beach</p>
-            </div>
+<!-- DESTINATIONS -->
+<section id="destination" class="destination">
+    <h2>Popular Destinations</h2>
 
-            <div class="card">
-                <img src="Assets/sajek.jpg" alt="">
-                <h3>Sajek Valley</h3>
-                <p>Land of clouds</p>
-            </div>
+    <div class="destination-container">
 
-            <div class="card">
-                <img src="Assets/sundarbans.jpg" alt="">
-                <h3>Sundarbans</h3>
-                <p>Largest mangrove forest</p>
+        <div class="card">
+            <img src="Assets/cox bazar.jpg">
+            <h3>Cox's Bazar</h3>
+            <p>World's longest sea beach</p>
+            <h4>Trip Price: ৳3500</h4>
+            <button onclick="showHotels('cox')">View Hotels</button>
+
+            <div id="cox-hotels" class="hotel-list hidden">
+                <p>Sea Pearl Resort - ৳2000/night</p>
+                <p>Hotel Sea Crown - ৳1000/night</p>
+                <button onclick="bookHotel('Sea Pearl Resort')">Book Hotel</button>
             </div>
         </div>
-    </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="booking">
-        <h2>Book Your Trip</h2>
+        <div class="card">
+            <img src="Assets/sajek.jpg">
+            <h3>Sajek Valley</h3>
+            <p>Land of Clouds</p>
+            <h4>Trip Price: ৳6500</h4>
+            <button onclick="showHotels('sajek')">View Hotels</button>
 
-        <form id="bookingForm">
-            <select id="place">
-                <option value="">Select Destination</option>
-                <option>Cox's Bazar</option>
-                <option>Sajek Valley</option>
-                <option>Sundarbans</option>
-                <option>Saint Martin</option>
-            </select>
-
-            <input type="date" id="date">
-
-            <input type="number" id="people" placeholder="Number of People">
-
-            <button type="button" onclick="bookTrip()">Confirm Booking</button>
-        </form>
-
-        <div id="message"></div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <h2>Travel Gallery</h2>
-
-        <div class="gallery-container">
-
-            <div class="gallery-card">
-                <div class="card-front">
-                    <img src="Assets/cox bazar.jpg" alt="">
-                <h3>Cox's Bazar</h3>
-                </div>
-                <div class="card-back">
-      <h3>Cox's Bazar</h3>
-      <br>
-      <p>"The longest natural sea beach in the world, stretching over 120 km. A perfect escape to witness golden sunsets and the rhythmic melody of the waves."</p>
-    </div>
+            <div id="sajek-hotels" class="hotel-list hidden">
+                <p>Megh Resort - ৳4500/night</p>
+                <p>Sajek Resort - ৳2000/night</p>
+                <button onclick="bookHotel('Sajek Resort')">Book Hotel</button>
             </div>
+        </div>
 
-            <div class="gallery-card">
-                <div class="card-front">
-                    <img src="Assets/sajek.jpg" alt="">
+        <div class="card">
+            <img src="Assets/sundarbans.jpg">
+            <h3>Sundarbans</h3>
+            <p>Largest Mangrove Forest</p>
+            <h4>Trip Price: ৳3000</h4>
+            <button onclick="showHotels('sundarban')">View Hotels</button>
+
+            <div id="sundarban-hotels" class="hotel-list hidden">
+                <p>Tiger Garden Hotel - ৳3000/night</p>
+                <p>Eco Resort - ৳2200/night</p>
+                <button onclick="bookHotel('Tiger Garden Hotel')">Book Hotel</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="booking">
+    <h2>Book Your Trip</h2>
+
+    <form id="bookingForm">
+        <select id="place">
+            <option value="">Select Destination</option>
+            <option>Cox's Bazar</option>
+            <option>Sajek Valley</option>
+            <option>Sundarbans</option>
+        </select>
+
+        <input type="date" id="date">
+        <input type="number" id="people" placeholder="Number of People">
+
+        <button type="button" onclick="bookTrip()">Confirm Booking</button>
+    </form>
+
+    <div id="message"></div>
+</section>
+
+<!-- LOGIN -->
+<section class="login-section">
+    <h2>User Login</h2>
+
+    <div class="login-box">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="loginUser()">Login</button>
+    </div>
+
+    <div id="loginMessage"></div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard hidden" id="dashboard">
+    <h2>User Dashboard</h2>
+
+    <div class="dashboard-box">
+        <p id="bookingInfo">No booking yet</p>
+        <button onclick="showPayment()">Proceed Payment</button>
+    </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="payment-section hidden" id="paymentSection">
+    <h2>Payment Gateway</h2>
+
+    <div class="payment-box">
+        <select id="paymentMethod">
+            <option value="">Select Payment Method</option>
+            <option>bKash</option>
+            <option>Nagad</option>
+            <option>Rocket</option>
+            <option>Visa Card</option>
+        </select>
+
+        <input type="text" id="cardName" placeholder="Account Name">
+        <input type="text" id="cardNumber" placeholder="Account Number">
+        <input type="number" id="amount" placeholder="Amount">
+
+        <button onclick="payNow()">Pay Now</button>
+    </div>
+
+    <div id="paymentMessage"></div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+    <h2>Customer Reviews</h2>
+
+    <div class="review-container">
+        <div class="review-card">
+            <p>"Amazing experience in Cox's Bazar! Hotel booking was smooth 
+                and the beach tour package was excellent."</p>
+            <h4>Sabuj</h4>
+        </div>
+
+        <div class="review-card">
+            <p>"Best travel agency in Bangladesh. Their service was excellent, booking was easy, and the entire trip experience was unforgettable."</p>
+            <h4>Sadikur</h4>
+        </div>
+
+        <div class="review-card">
+            <p>"Our Sajek Valley tour was unforgettable. The resort, transportation, and overall management were excellent."</p>
+            <h4>Tanvir</h4>
+        </div>
+    </div>
+</section>
+ <!-- Gallery Section -->
+<section id="gallery" class="gallery">
+    <h2>Travel Gallery</h2>
+
+    <div class="gallery-container">
+
+        <!-- Card 1: Cox's Bazar -->
+        <div class="gallery-card">
+            <div class="card-front">
+                <img src="Assets/cox bazar.jpg" alt="Cox's Bazar">
+                <h3>Cox's Bazar</h3>
+            </div>
+            <div class="card-back">
+                <h3>Cox's Bazar</h3>
+                <p>"The longest natural sea beach in the world, stretching over 120 km. A perfect escape to witness golden sunsets."</p>
+            </div>
+        </div>
+
+        <!-- Card 2: Sajek Valley -->
+        <div class="gallery-card">
+            <div class="card-front">
+                <img src="Assets/sajek.jpg" alt="Sajek Valley">
                 <h3>Sajek Valley</h3>
             </div>
-                <div class="card-back">
-      <h3>Sajek Valley</h3>
-      <br>
-      <p>"Known as the 'Queen of Hills,' Sajek is a magical place where you can touch the clouds. Surrounded by lush green mountains, it offers a breathtaking view of nature's horizon."</p>
-    </div>
+            <div class="card-back">
+                <h3>Sajek Valley</h3>
+                <p>"The 'Queen of Hills,' a magical place where you can touch the clouds and enjoy breathtaking mountain views."</p>
             </div>
+        </div>
 
-            <div class="gallery-card">
-                <div class="card-front">
-<img src="Assets/sundarbans.jpg" alt="">
+        <!-- Card 3: Sundarbans -->
+        <div class="gallery-card">
+            <div class="card-front">
+                <img src="Assets/sundarbans.jpg" alt="Sundarbans">
                 <h3>Sundarbans</h3>
-                </div>
-                <div class="card-back">
-      <h3>Sundarbans</h3>
-      <br>
-      <p>"The largest mangrove forest in the world and a UNESCO World Heritage site. Home to the majestic Royal Bengal Tiger and a diverse range of wildlife."</p>
-    </div>
             </div>
-
-            <div class="gallery-card">
-                <div class="card-front">
-                    <img src="Assets/saint.jpg" alt="">
-                <h3>Saint Martin</h3></div>
-                <div class="card-back">
-      <h3>Saint Martin</h3>
-      <br>
-      <p>"The only coral island in Bangladesh, where crystal-clear blue waters meet white sandy beaches. A true tropical paradise in the Bay of Bengal."</p>
-    </div>
+            <div class="card-back">
+                <h3>Sundarbans</h3>
+                <p>"The largest mangrove forest in the world and home to the majestic Royal Bengal Tiger."</p>
             </div>
+        </div>
 
-            <div class="gallery-card">
-                <div class="card-front">
-<img src="Assets/rangamati.jpg" alt="">
+        <!-- Card 4: Saint Martin -->
+        <div class="gallery-card">
+            <div class="card-front">
+                <img src="Assets/saint.jpg" alt="Saint Martin">
+                <h3>Saint Martin</h3>
+            </div>
+            <div class="card-back">
+                <h3>Saint Martin</h3>
+                <p>"The only coral island in Bangladesh, with crystal-clear blue waters and white sandy beaches."</p>
+            </div>
+        </div>
+
+        <!-- Card 5: Rangamati -->
+        <div class="gallery-card">
+            <div class="card-front">
+                <img src="Assets/rangamati.jpg" alt="Rangamati">
                 <h3>Rangamati</h3>
-                </div>
-                <div class="card-back">
-      <h3>Rangamati</h3>
-      <br>
-      <p>"A breathtaking blend of emerald hills and the serene Kaptai Lake. Rangamati is the heart of tranquility in the Chittagong Hill Tracts."</p>
-    </div>
             </div>
-
-            <div class="gallery-card">
-                <div class="card-front">
-  <img src="Assets/tea.jpg" alt="">
-                <h3>Sylhet Tea Garden</h3>
-                </div>
-              <div class="card-back">
-      <h3>Sylhet Tea Garden</h3>
-      <br>
-      <p>"Rolling waves of hills draped in a lush green carpet. The tea capital of Sylhet—the perfect destination to experience the tranquility of nature."</p>
-    </div>
+            <div class="card-back">
+                <h3>Rangamati</h3>
+                <p>"A breathtaking blend of emerald hills and the serene Kaptai Lake. The heart of tranquility."</p>
             </div>
-
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <footer class="footer">
+        <!-- Card 6: Sylhet Tea Garden -->
+        <div class="gallery-card">
+            <div class="card-front">
+                <img src="Assets/tea.jpg" alt="Sylhet Tea Garden">
+                <h3>Sylhet Tea Garden</h3>
+            </div>
+            <div class="card-back">
+                <h3>Sylhet Tea Garden</h3>
+                <p>"Rolling waves of hills draped in a lush green carpet. Experience the tranquility of nature."</p>
+            </div>
+        </div>
 
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
     <div class="footer-container">
 
-        <!-- Brand -->
         <div class="footer-box">
-            <h2>Bengal Travels</h2>
-            <p>Explore the beauty of Bangladesh with us.</p>
+            <h3>Bengal Travels</h3>
+            <p>Explore Bangladesh with us.</p>
         </div>
 
-        <!-- Links -->
         <div class="footer-box">
             <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#destination">Destinations</a></li>
-                <li><a href="#booking">Booking</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-            </ul>
+            <a href="#home">Home</a>
+            <a href="#destination">Destination</a>
+            <a href="#booking">Booking</a>
         </div>
 
-        <!-- Contact -->
         <div class="footer-box">
             <h3>Contact</h3>
             <p>Email: kazit875@gmail.com</p>
             <p>Phone: 01925687664</p>
-            <p>Dhaka, Bangladesh</p>
+            <p>Location: Dhaka, Bangladesh</p>
         </div>
 
-        <!-- Social -->
         <div class="footer-box">
             <h3>Follow Us</h3>
             <div class="socials">
-                <a href="#">🌐</a>
-                <a href="#">📘</a>
-                <a href="#">📸</a>
-                <a href="#">▶️</a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
 
     </div>
-
-    <!-- Bottom -->
-    <div class="footer-bottom">
-        <p>© 2026 Bengal Travels | All Rights Reserved</p>
-    </div>
-
 </footer>
-    </footer>
 
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
