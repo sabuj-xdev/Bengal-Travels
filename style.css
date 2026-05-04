@@ -32,7 +32,7 @@ nav a{
 color:white;
 text-decoration:none;
 }
-
+/* hero section */
 #home{
 height:100vh;
 position:relative;
@@ -54,20 +54,26 @@ top:0;
 
 .hero-content{
 position:absolute;
-top:55%;
+top:45%;
 left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
 color:white;
 }
-
+.hero-content h1 {
+    color:grey;
+    font-size: 60px;
+    width:550px;
+    padding-bottom: 20px;
+}
 .btn{
 display:inline-block;
-margin-top:40px;
+margin-top:30px;
 padding:12px 25px;
 background:#ff5722;
 color:white;
 text-decoration:none;
+border-radius: 10px;
 }
 
 .destination{
@@ -264,14 +270,18 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 footer{
 background:#111;
 color:white;
-padding:50px 20px;
+
 }
 
 .footer-container{
 display:flex;
-justify-content:space-between;
+align-items: center;
 flex-wrap:wrap;
 gap:20px;
+padding-left:120px ;
+padding-top:80px;
+padding-bottom:80px;
+
 }
 
 .footer-box{
